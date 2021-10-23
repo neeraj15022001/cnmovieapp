@@ -3,6 +3,7 @@ import { Box } from "@mui/system";
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import { data } from "../../data.js";
+import { addMovies } from "../../services/actions/index";
 
 class MovieList extends React.Component {
   componentDidMount() {
@@ -11,24 +12,21 @@ class MovieList extends React.Component {
       console.log("Updated");
       this.forceUpdate();
     });
-    store.dispatch({
-      type: "ADD_MOVIES",
-      movies: data,
-    });
+    store.dispatch(addMovies(data));
     console.log("State", store.getState());
   }
   render() {
-    const data = this.props.store.getState();
+    const { list, favorites } = this.props.store.getState();
     return (
       <Box>
         <Grid container spacing={8}>
-          {data.map((movie) => (
+          {list.map((movie, index) => (
             <MovieCard
+              key={index}
               title={movie.Title}
               plot={movie.Plot}
               poster={movie.Poster}
               imdBRating={movie.imdbRating}
-              key={movie.imdbID}
             />
           ))}
         </Grid>

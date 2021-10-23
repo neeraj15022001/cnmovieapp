@@ -19,47 +19,54 @@ export default function MultiActionAreaCard({
   poster,
 }) {
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card
-        sx={{
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-        }}
-      >
-        <CardActionArea>
-          <CardMedia component="img" height="140" image={poster} alt={title} />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              {title}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              {plot}
-            </Typography>
-            <Typography
-              variant="subtitle2"
-              component="legend"
-              color="text.secondary"
-              sx={{ margin: "16px 0 0 0" }}
+    <>
+      <Grid item xs={12} sm={6} md={4} lg={3}>
+        <Card
+          sx={{
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
+        >
+          <CardActionArea>
+            <CardMedia
+              component="img"
+              height="140"
+              image={poster}
+              alt={title}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {plot}
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                component="legend"
+                color="text.secondary"
+                sx={{ margin: "16px 0 0 0" }}
+              >
+                Rating
+              </Typography>
+              <Rating name="read-only" value={imdBRating / 2} readOnly />
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <Button
+              size="large"
+              variant="contained"
+              color="error"
+              startIcon={<FavoriteBorder />}
+              fullWidth={true}
             >
-              Rating
-            </Typography>
-            <Rating name="read-only" value={imdBRating / 2} readOnly />
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <Button
-            size="large"
-            variant="contained"
-            color="error"
-            startIcon={<FavoriteBorder />}
-            fullWidth={true}
-          >
-            Add To Favorites
-          </Button>
-        </CardActions>
-      </Card>
-    </Grid>
+              Add To Favorites
+            </Button>
+          </CardActions>
+        </Card>
+      </Grid>
+    </>
   );
 }
