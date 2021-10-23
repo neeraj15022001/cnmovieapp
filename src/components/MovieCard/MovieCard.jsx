@@ -18,7 +18,7 @@ export default function MultiActionAreaCard(props) {
     const movie = props.movie;
     props.dispatch(removeFavorites(movie));
   };
-  const handleFavoriteClick = () => { 
+  const handleFavoriteClick = () => {
     const movie = props.movie;
     props.dispatch(addFavorites(movie));
   };

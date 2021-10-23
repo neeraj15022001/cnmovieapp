@@ -24,4 +24,11 @@ function removeFavorites(movie) {
     movie,
   };
 }
-export { ADD_MOVIES, ADD_TO_FAVORITES,REMOVE_FROM_FAVORITES, addMovies, addFavorites,removeFavorites };
+export {
+  ADD_MOVIES,
+  ADD_TO_FAVORITES,
+  REMOVE_FROM_FAVORITES,
+  addMovies,
+  addFavorites,
+  removeFavorites,
+};

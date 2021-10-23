@@ -8,12 +8,6 @@ const initialMoviesState = {
   favorites: [],
 };
 export default function addMovies(state = initialMoviesState, action) {
-  // if (action.type === ADD_MOVIES) {
-  //   return {
-  //     ...state,
-  //     list: action.movies,
-  //   };
-  // }
   switch (action.type) {
     case ADD_MOVIES:
       return {
