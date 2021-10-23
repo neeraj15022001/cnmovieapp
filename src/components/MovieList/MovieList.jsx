@@ -6,27 +6,42 @@ import { data } from "../../data.js";
 import { addMovies } from "../../services/actions/index";
 
 class MovieList extends React.Component {
+  constructor() {
+    super();
+    this.unsubscribe = null;
+  }
   componentDidMount() {
     const store = this.props.store;
-    store.subscribe(() => {
-      console.log("Updated");
+    this.unsubscribe = store.subscribe(() => {
       this.forceUpdate();
     });
-    store.dispatch(addMovies(data));
-    console.log("State", store.getState());
+    !this.props.favoritesTab && store.dispatch(addMovies(data));
   }
+  componentWillUnmount() {
+    this.unsubscribe();
+  }
+  isMovieFavorite = (movie) => {
+    const state = this.props.store.getState();
+    const movies = state.favorites;
+    const index = movies.indexOf(movie);
+    if (index !== -1) {
+      return true;
+    }
+    return false;
+  };
   render() {
-    const { list, favorites } = this.props.store.getState();
+    const movieData = this.props.favoritesTab
+      ? this.props.store.getState().favorites
+      : this.props.store.getState().list;
     return (
       <Box>
         <Grid container spacing={8}>
-          {list.map((movie, index) => (
+          {movieData.map((movie, index) => (
             <MovieCard
               key={index}
-              title={movie.Title}
-              plot={movie.Plot}
-              poster={movie.Poster}
-              imdBRating={movie.imdbRating}
+              movie={movie}
+              dispatch={this.props.store.dispatch}
+              isMovieFavorite={this.isMovieFavorite(movie)}
             />
           ))}
         </Grid>

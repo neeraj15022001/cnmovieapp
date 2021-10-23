@@ -59,10 +59,10 @@ export default function Body({ store }) {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <MovieList store={store} />
+        <MovieList store={store} favoritesTab={false} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Favourites
+        <MovieList store={store} favoritesTab={true} />
       </TabPanel>
     </Box>
   );
