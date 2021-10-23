@@ -1,11 +1,11 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
 import Body from "../Body/Body";
-function App() {
+function App({store}) {
   return (
     <div>
       <Navbar />
-      <Body />
+      <Body store={store} />
     </div>
   );
 }

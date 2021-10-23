@@ -1,3 +1,3 @@
-{
-"type" : "INCREASE_COUNT"   
-}
+// {
+// "type" : "INCREASE_COUNT"   
+// }

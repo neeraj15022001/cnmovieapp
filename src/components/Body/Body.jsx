@@ -39,7 +39,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function Body({ store }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -59,7 +59,7 @@ export default function BasicTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <MovieList />
+        <MovieList store={store} />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Favourites

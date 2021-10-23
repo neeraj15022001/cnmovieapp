@@ -29,12 +29,7 @@ export default function MultiActionAreaCard({
         }}
       >
         <CardActionArea>
-          <CardMedia
-            component="img"
-            height="140"
-            image={poster}
-            alt="green iguana"
-          />
+          <CardMedia component="img" height="140" image={poster} alt={title} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="div">
               {title}
