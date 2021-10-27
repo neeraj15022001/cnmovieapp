@@ -57,7 +57,7 @@ export default function SearchAppBar() {
           <Typography
             variant="h6"
             noWrap
-            component="div"
+            component="span"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
             Movies App

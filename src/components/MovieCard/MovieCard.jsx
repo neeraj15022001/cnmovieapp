@@ -43,7 +43,7 @@ export default function MultiActionAreaCard(props) {
               alt={Title}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
+              <Typography gutterBottom variant="h5" component="span">
                 {Title}
               </Typography>
               <Typography variant="body2" color="text.secondary">
