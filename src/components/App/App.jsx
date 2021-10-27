@@ -4,7 +4,7 @@ import Body from "../Body/Body";
 function App({store}) {
   return (
     <div>
-      <Navbar />
+      <Navbar store={store} />
       <Body store={store} />
     </div>
   );

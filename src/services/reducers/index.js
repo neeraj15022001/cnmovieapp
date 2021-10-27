@@ -2,6 +2,7 @@ import {combineReducers} from "redux";
 import {
     ADD_MOVIES,
     ADD_TO_FAVORITES,
+    ADD_SEARCH_RESULT,
     REMOVE_FROM_FAVORITES,
 } from "../actions/index";
 
@@ -37,12 +38,22 @@ export function addMovies(state = initialMoviesState, action) {
 }
 
 const initialSearchState = {
-    result: {}
+    result: [],
+    showResultsContainer: false
 };
 
 export function search(state = initialSearchState, action) {
     console.log("SEARCH REDUCER")
-    return state;
+    switch (action.type) {
+        case ADD_SEARCH_RESULT:
+            return {
+                ...state,
+                result: action.movies,
+                showResultsContainer: action.showResultsContainer
+            }
+        default:
+            return state;
+    }
 }
 
 // const initialRootState = {
